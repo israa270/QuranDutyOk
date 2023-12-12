@@ -43,4 +43,8 @@ type HomeWorkSearch struct {
 	request.PageInfo
 }
 
-
+type MoveStudent struct{
+	StudentId uint   `json:"studentId"`
+	OldClassId uint  `json:"oldClassId"`
+	NewClassId uint  `json:"newClassId"`
+}

@@ -24,6 +24,10 @@ func (m *ClassService) GetClassID(name  string, versionName  string) (uint, erro
 	return m.classRepository.GetClassID(name, versionName)
 }
 
+func (m *ClassService) CheckClassID(classId uint) bool {
+	return m.classRepository.CheckClassID(classId)
+}
+
 func (m *ClassService) GetClassList(info request.ClassSearch)([]model.Class, int64, error){
 	return m.classRepository.GetClassList(info)
 }

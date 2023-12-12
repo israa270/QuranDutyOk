@@ -47,11 +47,11 @@ func (m *TeacherController) CreateTeacher(name string, c *gin.Context) {
 		CreatedBy: tokenData.Username,
 	}
 
-	if err := m.teacherService.CreateTeacher(TeacherDB); err != nil {
+	if username, err := m.teacherService.CreateTeacher(TeacherDB); err != nil {
 		global.GvaLog.Error(global.GvaLoggerMessage["log"].CreationFail, zap.Error(err))
 		response.FailWithMessage(global.Translate("general.creationFail"), http.StatusInternalServerError, "error", c)
 	} else {
-		response.OkWithMessage(global.Translate("general.createSuccess"), http.StatusOK, "success", c)
+		response.OkWithDetailed(gin.H{"username": username},global.Translate("general.createSuccess"), http.StatusOK, "success", c)
 	}
 }
 

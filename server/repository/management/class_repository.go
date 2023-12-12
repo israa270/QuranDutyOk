@@ -29,7 +29,11 @@ func (m *ClassRepository) GetClassID(name string, versionName string) (uint, err
 	return class.ID, err
 }
 
-
+func (m *ClassRepository) CheckClassID(classId uint) bool{
+	var class model.Class
+	err := global.GvaDB.Where("id = ? ", classId).First(&class).Error
+	return err == nil
+}
 
 
 func (m *ClassRepository) GetClassList(info request.ClassSearch)([]model.Class, int64, error){

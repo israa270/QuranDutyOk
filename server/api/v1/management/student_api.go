@@ -85,7 +85,7 @@ func (m *StudentApi) GetStudentList(c *gin.Context) {
 // @Failure 500 {object} response.Response "{"code": 7,"message": "create fail","result": {},"type": "fail"}"
 // @Router /student/moveStudent [post]
 func (m *StudentApi) MoveStudent(c *gin.Context) {
-	var Student model.StudentDTO
+	var Student model.MoveStudent
 
 	if err := c.ShouldBindJSON(&Student); err != nil {
 		global.GvaLog.Error(global.GvaLoggerMessage["log"].BadRequest, zap.Error(err))

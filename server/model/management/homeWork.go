@@ -17,6 +17,7 @@ type HomeWork struct{
     UpdatedBy   string  `json:"updatedBy" gorm:"column:updated_by"`
 }
 
+//TODO: Assign Homework To Classes
 
 func (HomeWork) TableName() string {
 	return "homework"

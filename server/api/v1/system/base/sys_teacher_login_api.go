@@ -40,7 +40,7 @@ func (b *BaseApi) TeacherLogin(c *gin.Context) {
 		return
 	}
 
-	b.baseController.AdminLogin(l, c)
+	b.baseController.TeacherLogin(l, c)
 }
 
 

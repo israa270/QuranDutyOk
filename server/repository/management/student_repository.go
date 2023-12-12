@@ -16,9 +16,9 @@ type StudentRepository struct {
 }
 
 // CreateStudent createStudentRecord
-func (m *StudentRepository) CreateStudent(student model.Student) (err error) {
+func (m *StudentRepository) CreateStudent(student model.Student) (username string, err error) {
 	if err = global.GvaDB.Create(&student).Error; err != nil {
-		return err
+		return "", err
 	}
 
 	//Update Username and password
@@ -26,11 +26,12 @@ func (m *StudentRepository) CreateStudent(student model.Student) (err error) {
 	student.Password = utils.BcryptHash("asd" + student.UserName)
 
 	err = global.GvaDB.Where("id",student.ID).Updates(&student).Error
-	return err
+	return student.UserName, err
 }
 
-func (m *StudentRepository) MoveStudent(student model.Student) error {
-	err := global.GvaDB.Where("id = ?", student.ID).Updates(&student).Error
+func (m *StudentRepository) MoveStudent(studentId uint, newClassId uint) error {
+	var student model.Student
+	err := global.GvaDB.Where("id = ?", studentId).First(&student).Update("class_id",newClassId).Error
 	return err
 }
 
@@ -52,6 +53,14 @@ func (m *StudentRepository) CheckStudentExist(id uint) bool {
 	err := global.GvaDB.Where("id = ?", id).First(&student).Error
 	return err == nil
 }
+
+func (m *StudentRepository) CheckStudentClassExist(studentId uint, classId uint) bool {
+	var student model.Student
+	err := global.GvaDB.Where("id = ? AND class_id ", studentId, classId).First(&student).Error
+	return err == nil
+}
+
+
 
 func (m *StudentRepository) GetStudentList(info request.StudentSearch) ([]model.Student, int64, error) {
 	if info.PageSize == 0 || info.PageSize > global.GvaConfig.Mysql.LimitRecords {

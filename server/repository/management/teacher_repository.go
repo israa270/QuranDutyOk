@@ -15,17 +15,18 @@ import (
 type TeacherRepository struct{}
 
 // CreateTeacher createTeacherRecord
-func (m *TeacherRepository) CreateTeacher(teacher model.Teacher) (err error) {
+func (m *TeacherRepository) CreateTeacher(teacher model.Teacher) (username string,err error) {
 	if err = global.GvaDB.Create(&teacher).Error; err != nil {
-		return err
+		return "", err
 	}
 
 	//Update Username and password
 	teacher.UserName = "teacher" + fmt.Sprintf("%v", teacher.ID)
 	teacher.Password = utils.BcryptHash("asd" + teacher.UserName)
 
+	
 	err = global.GvaDB.Where("id", teacher.ID).Updates(&teacher).Error
-	return err
+	return teacher.UserName, err
 }
 
 func (m *TeacherRepository) CheckTeacherName(name string) bool {

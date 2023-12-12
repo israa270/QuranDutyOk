@@ -13,12 +13,12 @@ type StudentService struct{
 
 
 // CreateStudent createStudentRecord
-func (m *StudentService) CreateStudent(Student model.Student) error {
+func (m *StudentService) CreateStudent(Student model.Student) (string,error) {
 	return m.studentRepository.CreateStudent(Student)
 }
 
-func (m *StudentService) MoveStudent(Student model.Student) error {
-	return m.studentRepository.MoveStudent(Student)
+func (m *StudentService) MoveStudent(studentId uint, newClassId uint) error {
+	return m.studentRepository.MoveStudent(studentId, newClassId)
 }
 
 
@@ -32,6 +32,10 @@ func (m *StudentService) CheckStudentExist(id uint) bool{
 	return m.studentRepository.CheckStudentExist(id)
 }
  
+func (m *StudentService) CheckStudentClassExist(studentId uint, classId uint) bool{
+	return m.studentRepository.CheckStudentClassExist(studentId, classId)
+}
+
 
 func (m *StudentService) GetStudentList(info request.StudentSearch)([]model.Student, int64, error){
    return m.studentRepository.GetStudentList(info)

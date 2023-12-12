@@ -18,7 +18,7 @@ type TeacherService struct {
 
 
 // CreateTeacher createTeacherRecord
-func (m *TeacherService) CreateTeacher(teacher model.Teacher) error {
+func (m *TeacherService) CreateTeacher(teacher model.Teacher) (string,error) {
 	return m.teacherRepository.CreateTeacher(teacher)
 }
 

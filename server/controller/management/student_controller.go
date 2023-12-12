@@ -1,6 +1,5 @@
 package management
 
-
 import (
 	"net/http"
 
@@ -56,16 +55,16 @@ func (m *StudentController) CreateStudent(student manReq.StudentDTO, c *gin.Cont
 		CreatedBy: tokenData.Username,
 	}
 
-	if err := m.studentService.CreateStudent(StudentDB); err != nil {
+	if username, err := m.studentService.CreateStudent(StudentDB); err != nil {
 		global.GvaLog.Error(global.GvaLoggerMessage["log"].CreationFail, zap.Error(err))
 		response.FailWithMessage(global.Translate("general.creationFail"), http.StatusInternalServerError, "error", c)
 	} else {
-		response.OkWithMessage(global.Translate("general.createSuccess"), http.StatusOK, "success", c)
+		response.OkWithDetailed(gin.H{"username":username},global.Translate("general.createSuccess"), http.StatusOK, "success", c)
 	}
 }
 
 
-func (m *StudentController) MoveStudent(student manReq.StudentDTO, c *gin.Context){
+func (m *StudentController) MoveStudent(student manReq.MoveStudent, c *gin.Context){
 	//Get Username Created by
 	tokenData, err := claimcase.GetBaseClaim(c)
 	if err != nil {
@@ -79,29 +78,20 @@ func (m *StudentController) MoveStudent(student manReq.StudentDTO, c *gin.Contex
 	   return 
 	}
 	// Check Student name
-	if !m.studentService.CheckStudentName(student.Name) {
-		global.GvaLog.Debug(global.GvaLoggerMessage["log"].DuplicateValueName)
-		response.FailWithMessage(global.Translate("general.duplicateValueName"), http.StatusConflict, "warning", c)
+	if !m.studentService.CheckStudentClassExist(student.StudentId, student.OldClassId) {
+		global.GvaLog.Debug(global.GvaLoggerMessage["log"].IdNotFound)
+		response.FailWithMessage(global.Translate("general.idNotFound"), http.StatusNotFound, "warning", c)
 		return
 	}
 
-	//Check Class Id 
-	classID , err := m.classService.GetClassID(student.ClassName, student.Version)
-	if err != nil{
-		global.GvaLog.Error("class Name is not found")
-		response.FailWithMessage("class Name is not found", http.StatusNotFound, "warning", c)
+	//check new Class id is exist 
+	if !m.classService.CheckClassID(student.NewClassId){
+		global.GvaLog.Error("new class Name is not found")
+		response.FailWithMessage("new class Name is not found", http.StatusNotFound, "warning", c)
 		return
 	}
 
-	StudentDB := model.Student{
-	        Name: student.Name,
-		ClassID: classID,
-		Role: utils.Student,
-		CreatedBy: tokenData.Username,
-	}
-
-	StudentDB.ID = 1
-	if err := m.studentService.MoveStudent(StudentDB); err != nil {
+	if err := m.studentService.MoveStudent(student.StudentId, student.NewClassId); err != nil {
 		global.GvaLog.Error(global.GvaLoggerMessage["log"].CreationFail, zap.Error(err))
 		response.FailWithMessage(global.Translate("general.creationFail"), http.StatusInternalServerError, "error", c)
 	} else {
