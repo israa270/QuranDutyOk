@@ -3,7 +3,7 @@ package data
 import (
 	// "github.com/ebedevelopment/next-gen-tms/server/model/common/request"
 	"github.com/ebedevelopment/next-gen-tms/server/model/tms"
-	repository "github.com/ebedevelopment/next-gen-tms/server/repository/tms"
+	repository "github.com/ebedevelopment/next-gen-tms/server/repository/data"
 	"mime/multipart"
 )
 

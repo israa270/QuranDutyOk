@@ -37,7 +37,7 @@ mysql:
     path: 127.0.0.1
     w-port: "3306"
     config: charset=utf8mb4&parseTime=True&loc=Local
-    db-name: tms_test_8
+    db-name: test_9
     username: root
     password: password
     max-idle-conns: 10

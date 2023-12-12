@@ -69,7 +69,7 @@ func Routers() *gin.Engine {
 
 	// get routing group instance
 	systemRouter := router.GroupRouterApp.System
-	tmsRouter := router.GroupRouterApp.Tms
+	dataRouter := router.GroupRouterApp.Data
     managementRouter := router.GroupRouterApp.Management
 
 
@@ -92,13 +92,10 @@ func Routers() *gin.Engine {
 
 		systemRouter.InitSysOperationRecordRouter(PrivateGroup) // operations record
         systemRouter.InitMenuRouter(PrivateGroup)
-		tmsRouter.InitFileUploadAndDownloadRouter(PrivateGroup) // file upload load be routing
+		dataRouter.InitFileUploadAndDownloadRouter(PrivateGroup) // file upload load be routing
 
 	
-
-
-		tmsRouter.InitManufacturerRouter(PrivateGroup)
-		tmsRouter.InitDataExcelRouter(PrivateGroup)
+		dataRouter.InitDataExcelRouter(PrivateGroup)
 
 
 		managementRouter.InitTeacherRouter(PrivateGroup)

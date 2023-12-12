@@ -5,7 +5,7 @@ import (
 
 	"github.com/ebedevelopment/next-gen-tms/server/global"
 	"github.com/ebedevelopment/next-gen-tms/server/model/common/response"
-	controller "github.com/ebedevelopment/next-gen-tms/server/controller/tms/data"
+	controller "github.com/ebedevelopment/next-gen-tms/server/controller/data"
 	"github.com/gin-gonic/gin"
 )
 

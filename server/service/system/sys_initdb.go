@@ -61,9 +61,6 @@ func (i *InitDBService) initTables() error {
 		management.Teacher{},
 
 
-		
-		tms.Manufacturer{},
-
 
 	); err != nil {
 		return err

@@ -44,8 +44,7 @@ func RegisterTables(db *gorm.DB) {
 
 		tms.FileUploadAndDownload{},
 
-		tms.Manufacturer{},
-
+	
 		system.Admin{},
 		management.Class{},
 		management.HomeWork{},
