@@ -1,0 +1,147 @@
+{
+
+        "monitoring":"Monitoring",
+    
+        "dashboard":"البيانات",
+        "terminalLocation":"Terminal GEO Location",
+    
+        "management":"Management",
+    
+        "organization":"Organization",
+        "organizationRead" :"ReadOnly",
+        "organizationDelete":"Delete",
+        "organizationDisable":"Disable",
+        "organizationCreate":"Create",
+        "organizationEdit":"Edit",
+        "organizationImport":"import",
+        "organizationExport":"export",
+    
+ 
+        "merchant":"التجار",
+        "merchantRead":"تاجر قراءة فقط",
+        "merchantDelete":"مسح تاجر",
+        "merchantEdit":"تعديل تاجر",
+        "merchantDisable":"غير نشط",
+        "merchantCreate":"انشاء",
+        "merchantImport":"رفع الملفات",
+        "merchantExport":"تنزيل الملفات",
+        
+    
+        "terminal":"الماكينات",
+        "terminalRead": "ماكنية فقط",
+        "terminalEdit":"تعديل ماكنية",
+        "terminalDelete":"مسح ماكنية",
+        "terminalStatus":" تعديل الماكنية",
+        "terminalCreate":"انشاء",
+        "terminalImport":"رفع",
+        "terminalDownloadTemplate":"download template",
+        "terminalExport":" تنزيل",
+        "terminalMove":"نقل الماكنية",
+       
+        "terminalGroup":"Terminal Group Management",
+        "terminalGroupRead":"ReadOnly",
+        "terminalGroupEdit":"Edit",
+        "terminalGroupCreate":"Create",
+        "terminalGroupDelete":"Delete",
+        "terminalGroupUpdateStatus":"updateStatus",
+        "terminalGroupAddTerminal":"add terminals to group",
+        "terminalGroupImportTerminal":"import terminal to group",
+        "terminalGroupTerminal":"get terminal group specific terminal",
+        "terminalGroupDeleteTerminal":"delete terminals from group",
+        
+
+        "application":"Application Management",
+        "appDetails":"Application Details",
+        "appCreate":"Application Create",
+    
+
+        "pushTask":"Push Task",
+        "pushAppTask":"Push Application Task",
+        "pushParameterFile":"Push Parameter File",
+        "pushFirmwareTask":"Push Firmware Task",
+        "pushMessageTask":"Push Message Task",
+
+        "firmware":"Firmware Management",
+        "firmwareCreate":"Firmware Create",
+        "firmwareEdit":"Firmware Edit",
+        "firmwareDelete":"Firmware Delete", 
+
+        "pushTemplate":"Push Template Management",
+        "pushTemp": "Push Template",
+    
+         "generalSetting":"General Setting",
+         
+         "manufacturer":"Manufacturer",
+         "manufacturerRead": "ReadOnly",
+         "manufacturerDelete":"Delete",
+         "manufacturerDisable":"Disable",
+         "manufacturerCreate":"Create",
+         "manufacturerEdit":"Edit",
+         "manufacturerImport":"import",
+         "manufacturerExport":"export",
+    
+         "platform":"Platform Terminal",
+         "platformRead":"ReadOnly",
+         "platformDelete":"Delete",
+         "platformDisable":"Disable",
+         "platformCreate":"Create",
+         "platformEdit":"Edit",
+         "platformImport":"import",
+         "platformExport":"export",
+    
+         "model":"Model management",
+         "modelRead":"ReadOnly",
+         "modelDelete":"Delete",
+         "modelDisable":"Disable",
+         "modelCreate":"Create",
+         "modelEdit":"Edit",
+         "modelImport":"import",
+         "modelExport":"export",
+    
+    
+         "merchantType":"Merchant Type",
+         "merchantTypeRead":"ReadOnly",
+         "merchantTypeDelete":"Delete",
+         "merchantTypeDisable":"Disable",
+         "merchantTypeCreate":"Create",
+         "merchantTypeEdit":"Edit",
+         "merchantTypeImport":"import",
+         "merchantTypeExport":"export",
+    
+         "appCategory":"Application Category",
+         "appCategoryRead":"ReadOnly",
+         "appCategoryDelete":"Delete",
+         "appCategoryDisable":"Disable",
+         "appCategoryCreate":"Create",
+         "appCategoryEdit":"Edit",
+         "appCategoryImport":"import",
+         "appCategoryExport":"export",
+    
+         "puk":"Puk",
+ 
+         "system":"النظام",
+
+         "user":"ادارة المستخدم",
+         "userReadOnly":"المستخدم قراءة فقط",
+         "userCreate":"انشاء مستخدم",
+         "userDisable":"تعديل حالة المستخدم",
+         "userDelete": "مسح المستخدم",
+         "userResetPassword":"اعادة كلمة السر ",
+     
+         "role":"ادارة الصلاحيات",
+         "roleReadOnly": "الصلاحيات بالكامل",
+         "roleCreate":"انشاء الصلاحية",
+         "roleEdit":"تعديل الصلاحية",
+         "roleDelete":"مسح الصلاحية",
+     
+         "auditLog":"السجلات",
+         "parameterVariableLog":"Parameter Variable Log",
+         
+         "config":"النظام",
+         "configView":"النظام قراءة فقط",
+         "configUpdate":"تعديل النظام",
+
+         "report":"التقارير"
+
+    }
+    

@@ -1,0 +1,14 @@
+2023/11/06 - 19:45:27.685	error	/media/esraa/linux/go/testing/server/main.go:54	Automatic database creation failed! in write	{"error": "dial tcp 127.0.0.1:3306: connect: connection refused"}
+2023/11/06 - 19:46:37.756	error	/media/esraa/linux/go/testing/server/core/server.go:46	accept tcp [::]:8889: use of closed network connection
+2023/11/06 - 19:46:41.347	error	/media/esraa/linux/go/testing/server/main.go:54	Automatic database creation failed! in write	{"error": "dial tcp 127.0.0.1:3306: connect: connection refused"}
+2023/11/06 - 19:51:55.294	error	/media/esraa/linux/go/testing/server/main.go:54	Automatic database creation failed! in write	{"error": "dial tcp 127.0.0.1:3306: connect: connection refused"}
+2023/11/06 - 19:53:33.320	error	/media/esraa/linux/go/testing/server/main.go:54	Automatic database creation failed! in write	{"error": "dial tcp: lookup mysql on 127.0.0.53:53: server misbehaving"}
+2023/11/06 - 19:59:58.700	error	/media/esraa/linux/go/testing/server/main.go:54	Automatic database creation failed! in write	{"error": "dial tcp: lookup dbsql on 127.0.0.53:53: server misbehaving"}
+2023/11/06 - 20:00:16.191	error	/media/esraa/linux/go/testing/server/main.go:54	Automatic database creation failed! in write	{"error": "Error 1044 (42000): Access denied for user 'dbtest'@'%' to database 'tms_test_8'"}
+2023/11/06 - 20:17:48.702	error	/media/esraa/linux/go/testing/server/core/server.go:46	accept tcp [::]:8889: use of closed network connection
+2023/11/06 - 21:22:11.236	error	/media/esraa/linux/go/testing/server/core/server.go:46	accept tcp [::]:8888: use of closed network connection
+2023/11/06 - 22:09:11.823	error	/media/esraa/linux/go/testing/server/core/server.go:46	net.Listen error: listen tcp :8888: bind: address already in use
+2023/11/06 - 22:30:56.887	error	/media/esraa/linux/go/testing/server/core/server.go:46	accept tcp [::]:8888: use of closed network connection
+2023/11/06 - 22:33:28.354	error	/media/esraa/linux/go/testing/server/core/server.go:46	accept tcp [::]:8888: use of closed network connection
+2023/11/06 - 22:39:47.881	error	/media/esraa/linux/go/testing/server/controller/system/user/user_controller.go:76	Getting data failed!	{"error": "record not found"}
+2023/11/06 - 22:40:44.685	error	/media/esraa/linux/go/testing/server/core/server.go:46	accept tcp [::]:8888: use of closed network connection

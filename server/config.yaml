@@ -1,0 +1,93 @@
+captcha:
+    key-long: 6
+    img-width: 240
+    img-height: 80
+cors:
+    mode: whitelist
+    whitelist:
+        - allow-origin: 127.0.0.1
+          allow-methods: GET, POST
+          allow-headers: content-type
+          expose-headers: Content-Length, Access-Control-Allow-Origin, Access-Control-Allow-Headers, Content-Type
+          allow-credentials: true
+        - allow-origin: 127.0.0.1
+          allow-methods: GET, POST
+          allow-headers: content-type
+          expose-headers: Content-Length, Access-Control-Allow-Origin, Access-Control-Allow-Headers, Content-Type
+          allow-credentials: true
+excel:
+    dir: ./resource/excel/
+    dir-template: ./resource/template/
+jwt:
+    buffer-time: 1d
+    expires-time: 7d
+    issuer: ebeTms
+    signing-key: 7f34de07-b5d7-43f7-af6f-b3ddc5fb8499
+language:
+    language: en
+    dir: ./resource/lang/
+local:
+    path: uploads/file
+    download: ./downloads/
+logger-path:
+    dir: ./resource/logJson/
+menu-translator:
+    dir: ./resource/menu/
+mysql:
+    path: 127.0.0.1
+    w-port: "3306"
+    config: charset=utf8mb4&parseTime=True&loc=Local
+    db-name: tms_test_8
+    username: root
+    password: password
+    max-idle-conns: 10
+    max-open-conns: 100
+    log-mode: error
+    log-zap: true
+    limit-records: 1000
+mysql-info:
+    path: 127.0.0.1
+    w-port: "3306"
+system:
+    env: public
+    addr: :8888
+    db-type: mysql
+    oss-type: local
+    ip-limit-count: 15000
+    ip-limit-time: 3600
+    backend-path: 10.16.33.160
+    server-path: http://127.0.0.1:8889
+    ui-server-path: http://127.0.0.1:3100
+timer:
+    start: true
+    spec: '@daily'
+    detail:
+        - tableName: sys_operation_records
+          compareField: created_at
+          interval: 2160h
+        - tableName: jwt_blacklists
+          compareField: created_at
+          interval: 168h
+        - tableName: tms_file_upload_and_downloads
+          compareField: created_at
+          interval: 2160h
+user-config:
+    user-block-num: 10
+    user-block-time: 1m0s
+    password-expired: 2
+    login-attempt-count-time: 24h0m0s
+    authority-code: 16
+    last-password-change-num: 5
+    reset-password-length: 16
+    status-true: active
+    status-false: disable
+zap:
+    level: info
+    format: console
+    prefix: ""
+    director: log
+    show-line: true
+    encode-level: LowercaseLevelEncoder
+    stacktrace-key: stacktrace
+    log-in-console: false
+    max-age: 0

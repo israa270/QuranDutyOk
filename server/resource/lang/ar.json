@@ -1,0 +1,193 @@
+{
+	"init": {
+		"dbAlreadyExist": "قاعدة البيانات موجودة بالفعل",
+		"initDB": "انتقل إلى تهيئة قاعدة البيانات",
+		"dbAlreadyInit": "لا تحتاج قاعدة البيانات إلى التهيئة"
+	},
+	"general": {
+		"createSuccess": "تم إنشاؤه بنجاح",
+		"creationFail": "فشل في الإنشاء!",
+		"deleteFail": "فشل في الحذف",
+		"deleteSuccess": "تم الحذف بنجاح",
+		"getDataFail": "فشل في الحصول على البيانات!",
+		
+		"getDataSuccess": "تم الحصول على البيانات بنجاح",
+		"modifyFail": "فشل في التعديل!",
+		"modifySuccess": "تم التعديل بنجاح",
+		"queryFail": "فشل في البحث!",
+		"querySuccess": "بحث ناجح",
+		"setupFail": "فشل الإعداد",
+		"setupFailErr": "فشل الإعداد!",
+		"setupSuccess": "تم الإعداد بنجاح",
+		"tableDataInitFail": "فشل تهيئة بيانات الجدول!",
+		"updateFail": "فشل التحديث!",
+		"updateSuccess": "تم التحديث بنجاح",
+		"viewCreateFail": "فشل في إنشاء العرض!",
+		"emptySheet":"رفع شيت فارغ",
+		"emptyExportData":"لايوجد داتا لكى ووضعها فى ملف",
+		"deleteFile": "not permission to delete. at least one parameter file belong to application"
+
+	},
+	"sys_authority": {
+		"copyFail": "فشل النسخ!",
+		"copyFailErr": "فشل النسخ",
+		"copySuccess": "تم النسخ بنجاح"
+	},
+	"sys_auto_code": {
+		"autoCreateFail": "فشل الإنشاء التلقائي! يرجى مسح البيانات غير المهمة بنفسك!",
+		"previewFail": "فشلت المعاينة!",
+		"previewFailErr": "فشلت المعاينة",
+		"previewSuccess": "تمت المعاينة بنجاح",
+		"queryTablesFail": "فشل الاستعلام عن الجدول"
+	},
+	"sys_auto_code_history": {
+		"rollbackSuccess": "تمت الاستعادة بنجاح"
+	},
+	"sys_captcha": {
+		"vCodeFail": "فشل في الحصول على رمز التحقق",
+		"vCodeSuccess": "تم الحصول على رمز التحقق بنجاح"
+	},
+	"sysInitDB": {
+		"autoCreateDBFail": "فشل إنشاء قاعدة البيانات تلقائيًا",
+		"autoCreateDBFailErr": "فشل إنشاء قاعدة البيانات تلقائيًا ، يرجى التحقق من سجل الخلفية وتهيئته بعد التحقق",
+		"autoCreateDbSuccess": "نجح إنشاء قاعدة البيانات التلقائية",
+		"paramVerifyFail": "فشل التحقق من المعاملات!",
+		"paramVerifyFailErr": "فشل التحقق من المعاملات"
+	},
+	"sys_operation_record": {
+		"batchDeleteFail": "فشل في الحذف المجمع!",
+		"batchDeleteSuccess": "تم الحذف المجمع بنجاح"
+	},
+	"sys_system": {
+		"rebootFail": "فشل في إعادة التشغيل!",
+		"rebootFailErr": "فشل في إعادة التشغيل",
+		"rebootSuccess": "تم إعادة تشغيل النظام بنجاح"
+	},
+	"mail":{
+		"sendEmailFail":"Failed to send Email",
+		"sendEmailSuccess":"send email Successfully",
+		"emailTokenNotValid" :"email in token is not valid",
+		"emailVerifyBefore":"email activation before",
+		"activeLink": "this link activation correct"
+	},
+	"sys_user": {
+		"changePW": "فشل التعديل، وكلمة المرور الأصلية لا تتطابق مع الحساب الجاري",
+		"deleteUserFail": "فشل في حذف المستخدم",
+		"getTokenFail": "فشل في الحصول على الرمز المميز!",
+		"jwtInvalidationFailed": "فشل في إلغاء JWT",
+		"loginFail": "فشل تسجيل الدخول! اسم المستخدم غير موجود أو كلمة المرور غير صحيحة!",
+		"loginStatusFail": "فشل في تعيين حالة تسجيل الدخول!",
+		"loginSuccess": "تسجيل الدخول بنجاح",
+		"registrationFail": "فشل التسجيل!",
+		"registrationSuccess": "نجاح التسجيل",
+		"resetPWFail": "فشلت إعادة الضبط!",
+		"resetPWSuccess": "تم إعادة ضبط كلمة السر بنجاح",
+		"userNameOrPasswordError": "اسم المستخدم غير موجود أو كلمة المرور غير صحيحة",
+		"vCodeErr": "رمز التحقق غير صحيح",
+		"resendRegister":"not able re-send email register to this user",
+		"userVerified":"User already verified",
+		"validatePassword":"password must be contains uppercase, lowercase,number,special character, at least 8 character max 32 character"
+	},
+	"system": {
+		"api": {
+			"role": "دور",
+			"systemUser": "مستخدم النظام",
+			"userLoginRequired": "تسجيل دخول المستخدم (مطلوب)",
+			"addMenu": "إضافة قائمة",
+			"addMenuRole": "أضف قائمة ودور الاقتران",
+			"changePassword": "تغيير كلمة المرور (مستحسن)",
+			"changeRoleAPIPermission": "تغيير أذونات دور api",
+			"codeGen": "مولد الأكواد",
+			"codeGenHistory": "تاريخ منشئ الكود",
+			"copyRole": "نسخ الدور",
+			"createAPI": "إنشاء API",
+			"createRole": "خلق دور",
+			"customer": "عميل",
+			"deleteAPI": "إزالة واجهات برمجة التطبيقات",
+			"deleteAPIByID": "دفعة حذف api",
+			"deleteMenu": "حذف قائمة",
+			"deleteRole": "حذف الدور",
+			"deleteUsers": "حذف المستخدمين",
+			"dictDetails": "تفاصيل قاموس النظام",
+			"dictionary": "قاموس النظام",
+			"fileUploadDownload": "تحميل الملف وتنزيله",
+			"getAPIByID": "الحصول على تفاصيل API",
+			"getAPIList": "الحصول على قائمة api",
+			"getAllAPI": "احصل على جميع واجهات برمجة التطبيقات",
+			"getDynamicRoute": "احصل على مسار ديناميكي للمستخدم",
+			"getMenuByID": "احصل على القائمة استنادا إلى معرف",
+			"getMenuList": "الحصول على قائمة القائمة الأساسية",
+			"getMenuRole": "احصل على قائمة الدور المحدد",
+			"getMenuTree": "الحصول على شجرة القائمة (مطلوب)",
+			"getPermissionList": "الحصول على قائمة الأذونات",
+			"getRoleList": "احصل على قائمة الأدوار",
+			"getSelfInfo": "الحصول على المعلومات الذاتية (مطلوب)",
+			"getUsersList": "الحصول على قائمة المستخدمين",
+			"jwtAddedToBlackList": "jwt ينضم إلى القائمة السوداء (خروج ، مطلوب)",
+			"menu": "قائمة",
+			"modifyUserRole": "تعديل دور المستخدم (مطلوب)",
+			"optRecord": "سجل العملية",
+			"partialUpload": "تحميل جزئي",
+			"resetUserPassword": "إعادة تعيين كلمة مرور المستخدم",
+			"resumeUpload": "تحميل قابل لإعادة الإضافة (إصدار مكون إضافي)",
+			"setPermissionGroup": "قم بإعداد مجموعات الأذونات",
+			"setRolePermissions": "تعيين أذونات مورد الدور",
+			"setSelfInfo": "تعيين المعلومات الذاتية (مطلوب)",
+			"setUserInfo": "تعيين معلومات المستخدم",
+			"systemService": "خدمة النظام",
+			"updateAPI": "تحديث واجهات برمجة التطبيقات",
+			"updateMenu": "تحديث القائمة",
+			"updateRole": "تحديث معلومات الدور",
+			"userRegistration": "تسجيل المستخدم"
+		},
+		"authority": {
+			"normalUserSubRole": "عادي المستخدم subrole",
+			"normalUsers": "المستخدمين العاديين",
+			"testRole": "اختبار الدور"
+		},
+		"dictionary": {
+			"boolType": "نوع bool قاعدة البيانات",
+			"floatType": "أرقام غير صحيحة",
+			"gender": "جنس",
+			"genderDict": "قاموس النوع الاجتماعي",
+			"intType": "أرقام صحيحة",
+			"intTypeDict": "نوع قاعدة البيانات المطابق لنوع int",
+			"stringType": "نصي",
+			"timeDateType": "نوع التاريخ الزمني لقاعدة البيانات",
+			"timeDateTypeDict": "نوع التاريخ الزمني لقاعدة البيانات"
+		},
+		"dictionary_detail": {
+			"female": "انثي",
+			"male": "ذكر"
+		},
+		"menu": {
+			"about": "معلومات عن النظام",
+			"adminTools": "أدوات إدارة النظام",
+			"apiManage": "إدارة API",
+			"autoCode": "مولد الأكواد",
+			"autoCodeEdit": "أتمتة الكود (إعادة الاستخدام)",
+			"autoCodeManage": "إدارة الكود الآلي",
+			"breakPoint": "HTTP",
+			"customerList": "قائمة العملاء (مثال مورد)",
+			"dashboard": "لوحة القيادة",
+			"dataTableInitFail": "فشل في تهيئة بيانات الجدول",
+			"dictDetail": "تفاصيل القاموس",
+			"dictMange": "إدارة القاموس",
+			"examples": "أمثلة",
+			"excelImportExport": "استيراد و تصدير Excel",
+			"formCreator": "منشئ النموذج",
+			"mediaLibUpDown": "مكتبة الوسائط (تحميل وتنزيل)",
+			"menuManage": "إدارة القوائم",
+			"operationLog": "سجل التدقيق",
+			"personalInfo": "معلومات شخصية",
+			"resumableUpload": "تحميل قابل لإعادة الإضافة (إصدار مكون إضافي)",
+			"resume": "استئناف من نقطة توقف (إصدار مكون إضافي)",
+			"roleManage": "إدارة الأدوار",
+			"serverStatus": "حالة الخادم",
+			"system": "أعدادات النظام",
+			"systemTools": "أدوات النظام",
+			"userManage": "إدارة المستخدم",
+			"website": "الموقع الرسمي"
+		}
+	}
+}

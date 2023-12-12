@@ -1,0 +1,166 @@
+
+{
+    "monitoring":"Monitoring",
+
+    "dashboard":"Dashboard",
+    "terminalLocation":"Terminal GEO Location",
+
+    "management":"Management",
+
+    "organization":"Organization",
+    "organizationRead" :"ReadOnly",
+    "organizationDelete":"Delete",
+    "organizationDisable":"Disable",
+    "organizationCreate":"Create",
+    "organizationEdit":"Edit",
+    "organizationImport":"import",
+    "organizationExport":"export",
+
+    "merchant":"Merchant",
+    "merchantRead":"ReadOnly",
+    "merchantDelete":"Delete",
+    "merchantDisable":"Disable",
+    "merchantCreate":"Create",
+    "merchantEdit":"Edit",
+    "merchantImport":"import",
+    "merchantExport":"export",
+    
+
+    "terminal":"Terminal Management",
+    "terminalRead": "ReadOnly",
+    "terminalDelete":"Delete",
+    "terminalStatus":"update Status",
+    "terminalCreate":"Create",
+    "terminalEdit":"Edit",
+    "terminalImport":"import",
+    "terminalDownloadTemplate":"download template",
+    "terminalExport":"export",
+    "terminalMove":"move terminal",
+    "terminalGroupTerminal":"get terminal group specific terminal",
+
+    "terminalGroup":"Terminal Group Management",
+    "terminalGroupRead":"ReadOnly",
+    "terminalGroupEdit":"Edit",
+    "terminalGroupCreate":"Create",
+    "terminalGroupDelete":"Delete",
+    "terminalGroupDeleteTerminal":"delete terminals from group",
+    "terminalGroupUpdateStatus":"updateStatus",
+    "terminalGroupAddTerminal":"add terminals to group",
+    "terminalGroupImportTerminal":"import terminal to group",
+
+    "application":"Application Management",
+    "appDetails":"Application Details",
+    "appCreate":"Application Create",
+    "appUpdate":"Application Update",
+    "appDelete":"Application Delete",
+    "appStatus":"Application Status",
+    "appVersionDelete":"Application Version Delete",
+    "appVersionStatus":"Application Version Status",
+    "downloadApp":"Download Application",
+    "downloadParamFile":"Download Parameter File",
+    "deleteParamFile":"Delete Parameter File",
+    "addParamFile":"Add Parameter File",
+
+    "appEditModel":"Application Edit Model",
+    "appDistributeOrg":"Application Distribute Organization",
+
+    "paramVariable":"Parameter Variable",
+    "paramVariableRead":"Parameter Variable Read",
+    "paramVariableCreate":"Parameter Variable Create",
+    "paramVariableDelete":"Parameter Variable Delete",
+    "paramVariableExport":"Parameter Variable Export",
+
+
+    "pushTask":"Push Task",
+    "pushAppTask":"Push Application Task",
+    "pushParameterFile":"Push Parameter File",
+    "pushFirmwareTask":"Push Firmware Task",
+    "pushMessageTask":"Push Message Task",
+
+
+    "firmware":"Firmware Management",
+    "firmwareCreate":"Firmware Create",
+    "firmwareEdit":"Firmware Edit",
+    "firmwareStatus":"Firmware Status",
+    "firmwareDelete":"Firmware Delete",
+    "firmwareDownload":"Firmware Download", 
+    "firmwareRead":"firmware Read",
+
+    "pushTemplate":"Push Template Management",
+    "pushTemp": "Push Template",
+
+     "generalSetting":"General Setting",
+     
+     "manufacturer":"Manufacturer",
+     "manufacturerRead": "ReadOnly",
+     "manufacturerDelete":"Delete",
+     "manufacturerDisable":"Disable",
+     "manufacturerCreate":"Create",
+     "manufacturerEdit":"Edit",
+     "manufacturerImport":"import",
+     "manufacturerExport":"export",
+
+     "platform":"Platform Terminal",
+     "platformRead":"ReadOnly",
+     "platformDelete":"Delete",
+     "platformDisable":"Disable",
+     "platformCreate":"Create",
+     "platformEdit":"Edit",
+     "platformImport":"import",
+     "platformExport":"export",
+
+     "model":"Model management",
+     "modelRead":"ReadOnly",
+     "modelDelete":"Delete",
+     "modelDisable":"Disable",
+     "modelCreate":"Create",
+     "modelEdit":"Edit",
+     "modelImport":"import",
+     "modelExport":"export",
+
+
+     "merchantType":"Merchant Type",
+     "merchantTypeRead":"ReadOnly",
+     "merchantTypeDelete":"Delete",
+     "merchantTypeDisable":"Disable",
+     "merchantTypeCreate":"Create",
+     "merchantTypeEdit":"Edit",
+     "merchantTypeImport":"import",
+     "merchantTypeExport":"export",
+
+     "appCategory":"Application Category",
+     "appCategoryRead":"ReadOnly",
+     "appCategoryDelete":"Delete",
+     "appCategoryDisable":"Disable",
+     "appCategoryCreate":"Create",
+     "appCategoryEdit":"Edit",
+     "appCategoryImport":"import",
+     "appCategoryExport":"export",
+
+     "puk":"Puk",
+
+
+    "system":"System",
+
+    "user":"User Management",
+    "userReadOnly":"user readOnly",
+    "userCreate":"User Create",
+    "userDisable":"User Disable",
+    "userDelete": "User Delete",
+    "userResetPassword":"User reset password",
+
+    "role":"Role Management",
+    "roleReadOnly": "Role ReadOnly",
+    "roleCreate":"Create",
+    "roleEdit":"Edit",
+    "roleDelete":"Delete",
+
+    "auditLog":"Audit Log",
+    "parameterVariableLog":"Parameter Variable Log",
+
+    "config":"System Configuration",
+    "configView":"ReadOnly",
+    "configUpdate":"Edit",
+
+    "report":"Reports"
+}

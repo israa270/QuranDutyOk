@@ -1,0 +1,207 @@
+app-config:
+  app-key-length: 20
+  app-secret-length: 30
+  screen-shot-limit: 5
+  tid-count-number: 10
+  xml-path: ./resource/xmlFiles/
+  xml-path-push: resource/xmlFiles/push/
+  xml-path-template: resource/xmlFiles/template/
+captcha:
+  key-long: 6
+  img-width: 240
+  img-height: 80
+casbin:
+  model-path: ""
+certificate-config:
+  certificate-file: ./resource/certificate/server.crt
+  key-file: ./resource/certificate/server.key
+cors:
+  mode: whitelist
+  whitelist:
+  - allow-origin: 127.0.0.1
+    allow-methods: GET, POST
+    allow-headers: content-type
+    expose-headers: Content-Length, Access-Control-Allow-Origin, Access-Control-Allow-Headers,
+      Content-Type
+    allow-credentials: true
+  - allow-origin: 127.0.0.1
+    allow-methods: GET, POST
+    allow-headers: content-type
+    expose-headers: Content-Length, Access-Control-Allow-Origin, Access-Control-Allow-Headers,
+      Content-Type
+    allow-credentials: true
+email:
+  to: ""
+  port: 587
+  from: golang.go14@gmail.com
+  host: smtp.gmail.com
+  is-ssl: true
+  secret: xbygckavfkovgdlr
+  nickname: mailTest
+email-template:
+  from: tms@tms.com
+  smtp-host: smtp.mailtrap.io
+  smtp-user: 02568b2d48c026
+  smtp-pass: 096a91d7146f0f
+  smtp-port: 587   
+excel:
+  dir: ./resource/excel/
+  dir-template: ./resource/template/
+fds:
+  path: http://tms-fds:8080/group1/upload  #http://10.16.34.160:5544/upload  #for docker /group1/
+  fds-path: http://tms-fds:8080    #http://10.16.34.160:5544/
+  out-fds-path: 
+jwt:
+  buffer-time: 1d
+  expires-time: 7d
+  issuer: ebeTms
+  signing-key: dd552faf-7f13-494b-bf2e-788a4c71361a
+language:
+  language: en
+  dir: ./resource/lang/
+local:
+  path: uploads/file
+  download: ./downloads/
+logger-path:
+  dir: ./resource/logJson/
+ldap-config:
+  base-DN: dc=example,dc=com
+  bind-DN: cn=read-only-admin,dc=example,dc=com
+  port: "389"
+  host: ldap.forumsys.com
+  bind-password: password
+  filter: (uid=%s)  
+m-push:
+  url: http://tms-alloc-mpush:9999/push
+menu-translator:
+  dir: ./resource/menu/
+mysql:
+  path: tms-db   #10.16.34.160
+  w-port: "6446"
+  r-port: "6447"
+  config: charset=utf8mb4&parseTime=True&loc=Local
+  db-name: tms_production_1
+  username: wakty
+  password: 'P@$$w0rD'
+  max-idle-conns: 10
+  max-open-conns: 100
+  log-mode: error
+  log-zap: true
+  limit-records: 1000
+mysql-info:
+  path: tms-db   #10.16.34.160
+  #port: "3306"  
+  w-port: "6446"
+  r-port: "6447" 
+redis:
+  db: 0
+  addr: tms-redis-master:6379 #tms-redis-master
+  password: ""
+redis-read:  
+  db: 0
+  addr: tms-redis-replicas:6379
+  password: ""  
+system:
+  env: public
+  addr:  :8889   #8889
+  grpc-port: :50051  #:50051
+  ws-port: :9100
+  db-type: mysql
+  oss-type: local
+  use-multi-point: true
+  use-redis: true
+  ip-limit-count: 15000
+  ip-limit-time: 3600
+  backend-path: tms-backend:8889  #10.16.34.160
+  server-path:  tms-backend:8889 #http://10.16.34.160:8889
+  ui-server-path: http://81.29.96.202:9592   #outside ip-port #tms-frontend  #http://10.16.34.160:3100
+  ui-confirm-email-redirect: /changePassword?verify_token=
+  ui-confirm-email-fail: /activateBefore?verify_token=
+  ui-reset-password-redirect: /resetPassword?verify_token=
+  ui-reset-password-fail: /resetExpire?verify_token=
+  environment: production #stage #production
+terminal-location:
+  token-key: pk.b7af71b0437c7326c78affa996230930
+  external-api-url: https://us1.unwiredlabs.com/v2/process
+timer:
+  start: true
+  spec: '@daily'
+  detail:
+  - tableName: sys_operation_records
+    compareField: created_at
+    interval: 2160h
+  - tableName: jwt_blacklists
+    compareField: created_at
+    interval: 168h
+  - tableName: tms_file_upload_and_downloads
+    compareField: created_at
+    interval: 2160h
+tms:
+  signature-supported: false
+  log-cat-enable: false
+  online-max-apk-count: 3
+  market-max-terminal-count: 5000
+  register-user-enable: false
+  group-max-terminal-count: 5000
+  group-push-terminal-limit: 5000
+  check-push-history: false
+  apk-file-max-size: 200
+  import-excel-file-max-size: 0
+  firmware-file-max-size: 1500
+  firmware-resource-file-max-size: 1500
+  max-num-of-terminals-in-one-purchase: 0
+  app-max-price: 0
+  firmware-modem-file-max-size: 1500
+  page-limit: 20
+  allow-release-note: false
+  allow-user-change-email: false
+  allow-market-use-SSO: false
+  ped-key-status-enable: false
+  link-expiration-hour: 0
+  allow-reseller-tid: false
+  terminal-offline-export-limit-total: 0
+  reseller-export-limit-total: 5000
+  merchant-export-limit-total: 5000
+  terminal-export-limit-total: 5000
+  terminal-import-limit-total: 5000
+  terminal-variable-import-limit: 0
+  group-terminal-import-limit-total: 0
+  group-variable-import-limit: 0
+  merchant-import-limit: 0
+  merchant-variable-import-limit: 0
+  merchant-category-import-limit: 0
+  market-variable-import-limit: 0
+  assert-import-limit: 0
+  pax-factory-default-id: 0
+  report-max-export-field-size: 0
+  developer-registration-fee: 0
+  show-service-agreement: false
+  alarm-receiver-email-max: 0
+  rki-auth-system-enabled: false
+  show-hidden-config: false
+  third-party-sys-ip-bind-limitDate: 0
+  third-party-sys-ip-limit: 0
+  report-record-export-limit: 0
+  global-province-flag: false
+user-config:
+  ip-address-block-num: 5
+  user-block-num: 3
+  ip-address-block-time: 1m0s
+  user-block-time: 1m0s
+  password-expired: 2
+  login-attempt-count-time: 24h0m0s
+  authority-code: 16
+  last-password-change-num: 5
+  reset-password-length: 16
+  status-true: active
+  status-false: disable
+zap:
+  level: info
+  format: console
+  prefix: ""
+  director: log
+  show-line: true
+  encode-level: LowercaseLevelEncoder
+  stacktrace-key: stacktrace
+  log-in-console: false
+  max-age: 0
