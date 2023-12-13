@@ -57,7 +57,8 @@ func Routers() *gin.Engine {
 	// end of adding
 	// Router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	Router.GET("/", func(c *gin.Context) {
-		c.Redirect(http.StatusMovedPermanently, "/swagger/index.html")
+		// return no data
+		c.JSON(http.StatusOK, gin.H{})
 	})
 
 	Router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
