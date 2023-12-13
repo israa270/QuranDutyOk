@@ -3,6 +3,7 @@ services:
   app:
     image: golang
     network_mode: bridge
+    working_dir: /app
     command: go run main.go
 
     ports:
