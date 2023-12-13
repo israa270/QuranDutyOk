@@ -34,19 +34,19 @@ logger-path:
 menu-translator:
     dir: ./resource/menu/
 mysql:
-    path: 127.0.0.1
+    path: 172.17.0.26
     w-port: "3306"
     config: charset=utf8mb4&parseTime=True&loc=Local
     db-name: tms_test_8
     username: root
-    password: password
+    password: Vrw$#q5"+9nhHMcBDs:FkN
     max-idle-conns: 10
     max-open-conns: 100
     log-mode: error
     log-zap: true
     limit-records: 1000
 mysql-info:
-    path: 127.0.0.1
+    path: 172.17.0.26
     w-port: "3306"
 system:
     env: public
