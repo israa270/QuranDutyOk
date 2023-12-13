@@ -50,7 +50,7 @@ mysql-info:
     w-port: "3306"
 system:
     env: public
-    addr: :8888
+    addr: :3008
     db-type: mysql
     oss-type: local
     ip-limit-count: 15000
