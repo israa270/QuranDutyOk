@@ -23,11 +23,6 @@ import (
 func Routers() *gin.Engine {
 	Router := gin.Default()
 
-
-    
-
-
-
 	Router.Use(ginzap.Ginzap(global.GvaLog, time.RFC3339, true))
 	Router.Use(ginzap.RecoveryWithZap(global.GvaLog, true))
 	// if you want not use nginx agent before side page ，can with update web/.env.production
@@ -52,8 +47,7 @@ func Routers() *gin.Engine {
 	// cross domain， as require cross domain can open under of notes
 	Router.Use(middleware.Cors()) // cors row all cross domain please request
 
-
-	Router.Use(gzip.Gzip(gzip.DefaultCompression))   //default compression
+	Router.Use(gzip.Gzip(gzip.DefaultCompression)) //default compression
 
 	//Router.Use(middleware.CorsByRules()) //  Play cross -domain requests in accordance with the rules of configuration
 	global.GvaLog.Debug("use middleware cors")
@@ -62,6 +56,9 @@ func Routers() *gin.Engine {
 	Router.Use(middleware.LanguageHandler()) // add global language handler middleware
 	// end of adding
 	// Router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
+	Router.GET("/", func(c *gin.Context) {
+		c.Redirect(http.StatusMovedPermanently, "/swagger/index.html")
+	})
 
 	Router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
@@ -70,8 +67,7 @@ func Routers() *gin.Engine {
 	// get routing group instance
 	systemRouter := router.GroupRouterApp.System
 	tmsRouter := router.GroupRouterApp.Tms
-    managementRouter := router.GroupRouterApp.Management
-
+	managementRouter := router.GroupRouterApp.Management
 
 	PublicGroup := Router.Group("")
 	{
@@ -88,21 +84,17 @@ func Routers() *gin.Engine {
 	PrivateGroup.Use(middleware.JWTAuth())
 	{
 
-		systemRouter.InitUserRouter(PrivateGroup)               // registerUser routing
+		systemRouter.InitUserRouter(PrivateGroup) // registerUser routing
 
 		systemRouter.InitSysOperationRecordRouter(PrivateGroup) // operations record
-        systemRouter.InitMenuRouter(PrivateGroup)
+		systemRouter.InitMenuRouter(PrivateGroup)
 		tmsRouter.InitFileUploadAndDownloadRouter(PrivateGroup) // file upload load be routing
-
-	
-
 
 		tmsRouter.InitManufacturerRouter(PrivateGroup)
 		tmsRouter.InitDataExcelRouter(PrivateGroup)
 
-
 		managementRouter.InitTeacherRouter(PrivateGroup)
-        managementRouter.InitClassRouter(PrivateGroup)
+		managementRouter.InitClassRouter(PrivateGroup)
 		managementRouter.InitStudentRouter(PrivateGroup)
 		managementRouter.InitHomeWorkRouter(PrivateGroup)
 	}
