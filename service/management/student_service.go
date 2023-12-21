@@ -28,10 +28,13 @@ func (m *StudentService) CheckStudentName(name  string) bool {
 }
 
 
-func (m *StudentService) CheckStudentExist(id uint) bool{
-	return m.studentRepository.CheckStudentExist(id)
-}
+// func (m *StudentService) CheckStudentExist(id uint) bool{
+// 	return m.studentRepository.CheckStudentExist(id)
+// }
  
+func (m *StudentService) CheckStudentExistWithClass(studentId uint,classId uint) (model.Student, error){
+	return m.studentRepository.CheckStudentExistWithClass(studentId, classId)
+}
 
 func (m *StudentService) GetStudentList(info request.StudentSearch)([]model.Student, int64, error){
    return m.studentRepository.GetStudentList(info)

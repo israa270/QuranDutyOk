@@ -31,7 +31,7 @@ type TeacherApi struct {
 // @Failure 500 {object} response.Response "{"code": 7,"message": "create fail","result": {},"type": "fail"}"
 // @Router /teacher/createTeacher [post]
 func (m *TeacherApi) CreateTeacher(c *gin.Context) {
-	var teacher model.NameRequest
+	var teacher model.CreateTeacherDTO
 
 	if err := c.ShouldBindJSON(&teacher); err != nil {
 		global.GvaLog.Error(global.GvaLoggerMessage["log"].BadRequest, zap.Error(err))
@@ -70,3 +70,5 @@ func (m *TeacherApi) GetTeacherList(c *gin.Context) {
 
 	m.teacherController.GetTeacherList(info, c)
 }
+
+

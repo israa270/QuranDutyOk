@@ -10,7 +10,6 @@ type Server struct {
 	Login   UserConfig `mapstructure:"user-config" json:"userConfig" yaml:"userConfig"`
 
 	// gorm
-	MysqlInfo  MysqlInfo `mapstructure:"mysql-info" json:"mysqlInfo" yaml:"mysql-info"`
 	Mysql  Mysql `mapstructure:"mysql" json:"mysql" yaml:"mysql"`
 
 	Local Local `mapstructure:"local" json:"local" yaml:"local"`

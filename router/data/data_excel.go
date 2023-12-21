@@ -1,7 +1,7 @@
-package tms
+package data
 
 import (
-	v1 "github.com/ebedevelopment/next-gen-tms/server/api/v1/tms/data"
+	v1 "github.com/ebedevelopment/next-gen-tms/server/api/v1/data"
 	"github.com/gin-gonic/gin"
 )
 

@@ -24,11 +24,7 @@ type Mysql struct {
     // ENV          string   `mapstructure:"env" json:"env" yaml:"env"`
 }
 
-type MysqlInfo struct {
-	Path         string `mapstructure:"path" json:"path" yaml:"path"`                             // server address
-	WPort         string `mapstructure:"w-port" json:"wPort" yaml:"w-port"`                             // port
-	RPort         string `mapstructure:"r-port" json:"rPort" yaml:"r-port"`    
-}
+
 
 // Dsn db connection
 func (m *Mysql) Dsn(writer bool) string {

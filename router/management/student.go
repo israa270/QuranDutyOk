@@ -19,9 +19,13 @@ func (s *StudentRouter) InitStudentRouter(Router *gin.RouterGroup) {
 		studentRouter.POST("createStudent", s.studentApi.CreateStudent)  
 
 		studentRouter.PUT("moveStudent", s.studentApi.MoveStudent)
+
+		studentRouter.PUT("updateStudentHomeWork", s.studentApi.UpdateStudentHomeWork)
+
 	}
 	{
 		studentRouterWithoutRecord.GET("getStudentList", s.studentApi.GetStudentList)
+		studentRouterWithoutRecord.GET("getStudentHomeWork", s.studentApi.GetStudentHomeWork)
 	
 	}
 }

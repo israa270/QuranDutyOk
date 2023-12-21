@@ -22,7 +22,7 @@ func (s *ClassRouter) InitClassRouter(Router *gin.RouterGroup) {
 	}
 	{
 		ClassRouterWithoutRecord.GET("getClassList", s.classApi.GetClassList)  
-
+		ClassRouterWithoutRecord.GET("getClassHomework/:classId", s.classApi.GetClassHomework)
 	}
 	
 }

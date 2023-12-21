@@ -52,7 +52,7 @@ func (p *OperationRecordRepository) GetSysOperationRecord(id string) (op sysResp
 		Body:     operation.Body,
 		Resp:     operation.Resp,
 		// ErrorMessage: operation.ErrorMessage,
-		
+
 		UserEmail:  operation.User.Email,
 		CreatedAt:  operation.CreatedAt.Format("2006-01-02 15:04:05"),
 		Name:       operation.Name,
@@ -69,7 +69,6 @@ func (p *OperationRecordRepository) GetSysOperationRecord(id string) (op sysResp
 		global.GvaLog.Error(global.GvaLoggerMessage["log"].GetDataFail, zap.Error(err))
 	}
 	op.Resp = m
-
 
 	return
 }
@@ -115,7 +114,7 @@ func (p *OperationRecordRepository) GetSysOperationRecordInfoList(info sysReq.Sy
 	}
 
 	//Operation For Sub Org and parent
-	err = db.Order("id "+info.Order).Limit(limit).Offset(offset).Preload("User").Find(&sysOperationRecords).Error
+	err = db.Order("id " + info.Order).Limit(limit).Offset(offset).Preload("User").Find(&sysOperationRecords).Error
 
 	for _, operation := range sysOperationRecords {
 		op := sysResp.AuditLogResp{
@@ -137,11 +136,10 @@ func (p *OperationRecordRepository) GetSysOperationRecordInfoList(info sysReq.Sy
 			ActionType: operation.ActionType,
 		}
 
-
 		var m interface{}
 		if operation.Body != "" {
 			if err := json.Unmarshal([]byte(operation.Body), &m); err != nil {
-				global.GvaLog.Debug(global.GvaLoggerMessage["log"].GetDataFail, zap.Error(err))
+				global.GvaLog.Error(global.GvaLoggerMessage["log"].GetDataFail, zap.Error(err))
 			}
 			op.Body = m
 		}
@@ -163,4 +161,3 @@ func (p *OperationRecordRepository) GetSysOperationRecordInfoList(info sysReq.Sy
 
 	return operationRecords, total, err
 }
-

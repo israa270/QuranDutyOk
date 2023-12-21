@@ -20,8 +20,12 @@ func (m *ClassService) CheckClassName(name  string, versionName  string) bool {
 	return m.classRepository.CheckClassName(name, versionName)
 }
 
-func (m *ClassService) GetClassID(name  string, versionName  string) (uint, error) {
-	return m.classRepository.GetClassID(name, versionName)
+func (m *ClassService) GetClassID(id uint) (model.Class, error) {
+	return m.classRepository.GetClassID(id)
+}
+
+func (m *ClassService) CheckClassID(id uint) bool {
+	return m.classRepository.CheckClassID(id)
 }
 
 func (m *ClassService) GetClassList(info request.ClassSearch)([]model.Class, int64, error){

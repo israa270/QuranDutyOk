@@ -48,8 +48,7 @@ func (i *InitDBService) initMysqlDB(conf config.Mysql) error {
 		return err
 	}
 
-	//TODO: ----------------  Create  user admin
-
+	// Create  user admin
 	CreateAdmin()
 
 	return nil

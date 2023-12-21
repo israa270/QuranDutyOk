@@ -17,14 +17,15 @@ import (
 type ClassController struct {
 	classService   management.ClassService
 	teacherService management.TeacherService
+	homeworkService management.HomeWorkService
 }
 
 func (m *ClassController) CreateClass(class model.Class, c *gin.Context) {
 	//Get Username Created by
 	tokenData, err := claimcase.GetBaseClaim(c)
 	if err != nil {
-		global.GvaLog.Error(global.GvaLoggerMessage["log"].GetOrganizationFail, zap.Error(err))
-		response.FailWithDetailed(err.Error(), global.Translate("organization.getOrganizationFail"), http.StatusUnauthorized, "error", c)
+		global.GvaLog.Error(global.GvaLoggerMessage["log"].UserFail, zap.Error(err))
+		response.FailWithDetailed(err.Error(), global.Translate("general.userFail"), http.StatusUnauthorized, "error", c)
 		return
 	}
 
@@ -72,3 +73,27 @@ func (m *ClassController) GetClassList(info manReq.ClassSearch, c *gin.Context){
 		}, global.Translate("general.getDataSuccess"), http.StatusOK, "success", c)
 	}
 }
+
+func (m *ClassController) GetClassHomework(info manReq.GetHomeWorkQuery, c *gin.Context){
+	if classHomeWork, err := m.homeworkService.GetClassHomework(info.ClassId); err != nil{
+		global.GvaLog.Error(global.GvaLoggerMessage["log"].GetDataFail, zap.Error(err))
+		response.FailWithMessage(global.Translate("general.getDataFail"), http.StatusInternalServerError, "error", c)
+		return
+	}else{
+		var homeworks []model.HomeWork
+       for _, class := range classHomeWork{
+            //get homework Data
+			if homework , err := m.homeworkService.GetHomeWorkID(class.HomeWorkId); err != nil{
+				global.GvaLog.Error(global.GvaLoggerMessage["log"].IdNotFound, zap.Error(err))
+				response.FailWithMessage(global.Translate("general.idNotFound"), http.StatusNotFound, "error", c)
+				return
+			}else{
+				homeworks = append(homeworks, homework)
+			}
+	   }
+
+	   response.OkWithDetailed(homeworks, "get homework success", http.StatusOK, "success", c)
+	   
+	}
+}
+

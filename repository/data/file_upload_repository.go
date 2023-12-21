@@ -1,4 +1,4 @@
-package tms
+package data
 
 import (
 	// "errors"
@@ -7,7 +7,7 @@ import (
 
 	"github.com/ebedevelopment/next-gen-tms/server/global"
 	// "github.com/ebedevelopment/next-gen-tms/server/model/common/request"
-	"github.com/ebedevelopment/next-gen-tms/server/model/tms"
+	"github.com/ebedevelopment/next-gen-tms/server/model/data"
 	"github.com/ebedevelopment/next-gen-tms/server/utils/upload"
 )
 

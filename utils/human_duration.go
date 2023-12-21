@@ -4,6 +4,9 @@ import (
 	"strconv"
 	"strings"
 	"time"
+
+	"github.com/ebedevelopment/next-gen-tms/server/global"
+	"go.uber.org/zap"
 )
 
 func ParseDuration(d string) (time.Duration, error) {
@@ -15,7 +18,11 @@ func ParseDuration(d string) (time.Duration, error) {
 	if strings.Contains(d, "d") {
 		index := strings.Index(d, "d")
 
-		hour, _ := strconv.Atoi(d[:index])      //TODO: handle error
+		hour, err := strconv.Atoi(d[:index])     
+		if err != nil{
+           global.GvaLog.Error("failed to parse hours ", zap.Error(err))
+		}
+
 		dr = time.Hour * 24 * time.Duration(hour)
 		ndr, err := time.ParseDuration(d[index+1:])
 		if err != nil {

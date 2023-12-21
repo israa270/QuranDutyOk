@@ -24,7 +24,7 @@ import (
 // @Failure 500 {object}  response.Response{}
 // @Router /user/getUserById/{id} [get]
 func (u *UserApi) GetUserById(c *gin.Context) {
-	//TODO: admin in -> user in org or subOrg  who see this api
+
 	id := c.Param("id")
 	userId, err := strconv.Atoi(id)
 	if err != nil {

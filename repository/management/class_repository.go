@@ -23,13 +23,18 @@ func (m *ClassRepository) CheckClassName(name string, versionName string) bool {
 	return err == nil
 }
 
-func (m *ClassRepository) GetClassID(name string, versionName string) (uint, error) {
+func (m *ClassRepository) GetClassID(id uint)(model.Class, error) {
 	var class model.Class
-	err := global.GvaDB.Where("name = ? AND version_name =?", name, versionName).First(&class).Error
-	return class.ID, err
+	err := global.GvaDB.Where("id = ?",id).First(&class).Error
+	return class, err
 }
 
 
+func (m *ClassRepository) CheckClassID(id uint) bool {
+	var class model.Class
+	err := global.GvaDB.Where("id = ?",id).First(&class).Error
+	return err == nil
+}
 
 
 func (m *ClassRepository) GetClassList(info request.ClassSearch)([]model.Class, int64, error){
@@ -43,10 +48,14 @@ func (m *ClassRepository) GetClassList(info request.ClassSearch)([]model.Class, 
 	var classes []model.Class
 	// If conditional search create search
 	if info.Name != "" {
-		db = db.Where("name LIKE ?", "%"+info.Name+"%")
+		db = db.Where("name LIKE ?", info.Name)
 	}
 	if info.VersionName != "" {
-		db = db.Where("version_name = ?", "%"+info.VersionName+"%")
+		db = db.Where("version_name = ?", info.VersionName)
+	}
+
+	if info.TeacherId != 0{
+		db = db.Where("teacher_id = ?", info.TeacherId)
 	}
 
 	t := time.Time{}

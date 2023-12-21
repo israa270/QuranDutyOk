@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"time"
 
-	_ "github.com/ebedevelopment/next-gen-tms/server/docs"
+	// _ "github.com/ebedevelopment/next-gen-tms/server/docs"
 	"github.com/ebedevelopment/next-gen-tms/server/global"
 	"github.com/ebedevelopment/next-gen-tms/server/middleware"
 	"github.com/ebedevelopment/next-gen-tms/server/router"
@@ -15,18 +15,13 @@ import (
 	// ginSwagger "github.com/swaggo/gin-swagger"
 	// "github.com/swaggo/gin-swagger/swaggerFiles"
 
-	swaggerFiles "github.com/swaggo/files"
-	ginSwagger "github.com/swaggo/gin-swagger"
+	// swaggerFiles "github.com/swaggo/files"
+	// ginSwagger "github.com/swaggo/gin-swagger"
 )
 
 // Routers initialization total routing
 func Routers() *gin.Engine {
 	Router := gin.Default()
-
-
-    
-
-
 
 	Router.Use(ginzap.Ginzap(global.GvaLog, time.RFC3339, true))
 	Router.Use(ginzap.RecoveryWithZap(global.GvaLog, true))
@@ -48,30 +43,28 @@ func Routers() *gin.Engine {
 
 	Router.StaticFS(global.GvaConfig.Local.Path, http.Dir(global.GvaConfig.Local.Path)) // forUser top image and file address
 	// Router.Use(middleware.LoadTls())  // if require  want use https please open this middle member before to  core/server.go use start up model change for Router.RunTLS("port"," ofcre/pemfile","ofKeyFile")
-	global.GvaLog.Debug("use middleware logger")
+	global.GvaLog.Error("use middleware logger")
 	// cross domain， as require cross domain can open under of notes
 	Router.Use(middleware.Cors()) // cors row all cross domain please request
 
-
-	Router.Use(gzip.Gzip(gzip.DefaultCompression))   //default compression
+	Router.Use(gzip.Gzip(gzip.DefaultCompression)) //default compression
 
 	//Router.Use(middleware.CorsByRules()) //  Play cross -domain requests in accordance with the rules of configuration
-	global.GvaLog.Debug("use middleware cors")
+	global.GvaLog.Error("use middleware cors")
 	//allow multi language handling
-	global.GvaLog.Debug("use middleware translator")
+	global.GvaLog.Error("use middleware translator")
 	Router.Use(middleware.LanguageHandler()) // add global language handler middleware
 	// end of adding
 	// Router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
-	Router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
+	// Router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
-	global.GvaLog.Debug("register swagger handler")
+	global.GvaLog.Error("register swagger handler")
 
 	// get routing group instance
 	systemRouter := router.GroupRouterApp.System
-	tmsRouter := router.GroupRouterApp.Tms
-    managementRouter := router.GroupRouterApp.Management
-
+	dataRouter := router.GroupRouterApp.Data
+	managementRouter := router.GroupRouterApp.Management
 
 	PublicGroup := Router.Group("")
 	{
@@ -88,25 +81,20 @@ func Routers() *gin.Engine {
 	PrivateGroup.Use(middleware.JWTAuth())
 	{
 
-		systemRouter.InitUserRouter(PrivateGroup)               // registerUser routing
+		systemRouter.InitUserRouter(PrivateGroup) // registerUser routing
 
 		systemRouter.InitSysOperationRecordRouter(PrivateGroup) // operations record
-        systemRouter.InitMenuRouter(PrivateGroup)
-		tmsRouter.InitFileUploadAndDownloadRouter(PrivateGroup) // file upload load be routing
-
-	
-
-
-		tmsRouter.InitManufacturerRouter(PrivateGroup)
-		tmsRouter.InitDataExcelRouter(PrivateGroup)
-
+		systemRouter.InitMenuRouter(PrivateGroup)
+		
+		dataRouter.InitFileUploadAndDownloadRouter(PrivateGroup) // file upload load be routing
+		dataRouter.InitDataExcelRouter(PrivateGroup)
 
 		managementRouter.InitTeacherRouter(PrivateGroup)
-        managementRouter.InitClassRouter(PrivateGroup)
+		managementRouter.InitClassRouter(PrivateGroup)
 		managementRouter.InitStudentRouter(PrivateGroup)
 		managementRouter.InitHomeWorkRouter(PrivateGroup)
 	}
 
-	global.GvaLog.Debug("router register success")
+	global.GvaLog.Error("router register success")
 	return Router
 }

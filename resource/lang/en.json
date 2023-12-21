@@ -10,6 +10,7 @@
 		"setupFail": "Setup failed",
 		"setupSuccess": "Setup successfully",
 		"creationFail": "Creation failed!",
+		"moveSuccess":"Move Successfully",
 	
 		"createSuccess": "Created successfully",
 		"updateFail": "Update failed!",

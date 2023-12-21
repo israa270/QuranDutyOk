@@ -10,8 +10,6 @@ import (
 	"go.uber.org/zap"
 )
 
-
-
 func ParseJsonFile(filePath string) (*config.MessageLogger, error) {
 	jsonFile, err := os.Open(filePath)
 	if err != nil {
@@ -35,26 +33,24 @@ func ParseJsonFile(filePath string) (*config.MessageLogger, error) {
 	return &menu, nil
 }
 
-
-
 // LoggerPath log path
-func  LoggerPath() error {
+func LoggerPath() error {
 	logPath := global.GvaConfig.LoggerPath.Dir
 	logFiles, err := os.ReadDir(logPath)
 	if err != nil {
 		global.GvaLog.Error(global.GvaLoggerMessage["log"].FilePath, zap.Error(err))
 		return err
 	}
-	
+
 	for _, langFile := range logFiles {
 		langFilePath := logPath + langFile.Name()
 		menu, err := ParseJsonFile(langFilePath)
 		if err != nil {
 			global.GvaLog.Error(global.GvaLoggerMessage["log"].FilePath, zap.Error(err))
 		}
-		 global.GvaLoggerMessage["log"] = menu
+		global.GvaLoggerMessage["log"] = menu
 	}
-	
-	global.GvaLog.Debug(global.GvaLoggerMessage["log"].LoadJson)
+
+	global.GvaLog.Error(global.GvaLoggerMessage["log"].LoadJson)
 	return nil
 }

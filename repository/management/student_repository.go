@@ -44,14 +44,19 @@ func (m *StudentRepository) CheckStudentName(name string) bool {
 	return err == nil
 }
 
-
-
-
 func (m *StudentRepository) CheckStudentExist(id uint) bool {
 	var student model.Student
 	err := global.GvaDB.Where("id = ?", id).First(&student).Error
 	return err == nil
 }
+
+func (m *StudentRepository) CheckStudentExistWithClass(studentId uint, classId uint) (model.Student, error) {
+	var student model.Student
+	err := global.GvaDB.Where("id = ? AND  class_id =? ", studentId, classId).First(&student).Error
+	return student, err
+}
+
+
 
 func (m *StudentRepository) GetStudentList(info request.StudentSearch) ([]model.Student, int64, error) {
 	if info.PageSize == 0 || info.PageSize > global.GvaConfig.Mysql.LimitRecords {
@@ -70,8 +75,8 @@ func (m *StudentRepository) GetStudentList(info request.StudentSearch) ([]model.
 		db = db.Where("username = ?", "%"+info.UserName+"%")
 	}
 
-	if info.ClassID != 0 {
-		db = db.Where("class_id = ?", info.ClassID)
+	if info.ClassId != 0 {
+		db = db.Where("class_id = ?", info.ClassId)
 	}
 
 	t := time.Time{}

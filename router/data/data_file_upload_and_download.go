@@ -1,7 +1,7 @@
-package tms
+package data
 
 import (
-	v1 "github.com/ebedevelopment/next-gen-tms/server/api/v1/tms/data"
+	v1 "github.com/ebedevelopment/next-gen-tms/server/api/v1/data"
 	"github.com/gin-gonic/gin"
 )
 
@@ -15,11 +15,5 @@ func (e *FileUploadAndDownloadRouter) InitFileUploadAndDownloadRouter(Router *gi
 	fileUploadAndDownloadRouter := Router.Group("fileUploadAndDownload")
 	{
 		fileUploadAndDownloadRouter.POST("upload", e.FileUploadAndDownloadApi.UploadFile)                 // upload file
-		fileUploadAndDownloadRouter.POST("uploadFirmware", e.FileUploadAndDownloadApi.UploadFirmwareFile) // upload file
-
-		// fileUploadAndDownloadRouter.GET("getFileList", FileUploadAndDownloadApi.GetFileList)  // get upload file list
-		// fileUploadAndDownloadRouter.DELETE("deleteFile", FileUploadAndDownloadApi.DeleteFile) // delete specify file
-
-		// fileUploadAndDownloadRouter.PUT("editFileName", FileUploadAndDownloadApi.EditFileName)
 	}
 }

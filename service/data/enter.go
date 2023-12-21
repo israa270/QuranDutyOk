@@ -1,5 +1,5 @@
 package data
 
-type ServiceGroupData struct {
+type ServiceGroup struct {
 	FileUploadAndDownloadService
 }

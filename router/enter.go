@@ -1,15 +1,15 @@
 package router
 
 import (
+	"github.com/ebedevelopment/next-gen-tms/server/router/data"
 	"github.com/ebedevelopment/next-gen-tms/server/router/management"
 	"github.com/ebedevelopment/next-gen-tms/server/router/system"
-	"github.com/ebedevelopment/next-gen-tms/server/router/tms"
 )
 
 // GroupRouter  struct
 type GroupRouter struct {
 	System system.GroupRouter
-	Tms    tms.GroupRouter
+	Data    data.GroupRouter
 	Management  management.GroupRouter
 }
 

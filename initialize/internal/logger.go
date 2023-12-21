@@ -21,14 +21,14 @@ func NewWriter(w logger.Writer) *writer {
 func (w *writer) Printf(message string, data ...interface{}) {
 	var logZap bool
 	switch global.GvaConfig.System.DbType {
-		case "mysql":
-			logZap = global.GvaConfig.Mysql.LogZap
+	case "mysql":
+		logZap = global.GvaConfig.Mysql.LogZap
 		// case "pgsql":
 		// 	logZap = global.GvaConfig.Pgsql.LogZap
 	}
-	
+
 	if logZap {
-		global.GvaLog.Debug(fmt.Sprintf(message+"\n", data...))
+		global.GvaLog.Error(fmt.Sprintf(message+"\n", data...))
 	} else {
 		w.Writer.Printf(message, data...)
 	}

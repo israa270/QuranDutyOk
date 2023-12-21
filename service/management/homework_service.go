@@ -8,22 +8,30 @@ import (
 
 
 type HomeWorkService struct {
-	HomeWorkRepository management.HomeWorkRepository
+	homeWorkRepository management.HomeWorkRepository
 }
 
 // CreateHomeWork createHomeWorkRecord
 func (m *HomeWorkService) CreateHomeWork(homeWork model.HomeWork) error {
-	return m.HomeWorkRepository.CreateHomeWork(homeWork)
+	return m.homeWorkRepository.CreateHomeWork(homeWork)
 }
 
-func (m *HomeWorkService) CheckHomeWorkName(name  string, versionName  string) bool {
-	return m.HomeWorkRepository.CheckHomeWorkName(name, versionName)
-}
 
-func (m *HomeWorkService) GetHomeWorkID(name  string, versionName  string) (uint, error) {
-	return m.HomeWorkRepository.GetHomeWorkID(name, versionName)
+func (m *HomeWorkService) GetHomeWorkID(id uint) (model.HomeWork, error) {
+	return m.homeWorkRepository.GetHomeWorkID(id)
 }
 
 func (m *HomeWorkService) GetHomeWorkList(info request.HomeWorkSearch)([]model.HomeWork, int64, error){
-	return m.HomeWorkRepository.GetHomeWorkList(info)
+	return m.homeWorkRepository.GetHomeWorkList(info)
 }
+
+
+func (m *HomeWorkService) AssignHomeWorkToClass(homework model.HomeWork) error{
+	return m.homeWorkRepository.AssignHomeWorkToClass(homework)
+}
+
+
+func (m *HomeWorkService) GetClassHomework(classId uint) ([]model.HomeworkClasses, error){
+	return m.homeWorkRepository.GetClassHomework(classId)
+}
+

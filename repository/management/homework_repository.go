@@ -17,18 +17,25 @@ func (m *HomeWorkRepository) CreateHomeWork(homeWork model.HomeWork) (err error)
 	return err
 }
 
-func (m *HomeWorkRepository) CheckHomeWorkName(name string, versionName string) bool {
+
+func (m *HomeWorkRepository) GetHomeWorkID(id uint) (model.HomeWork, error) {
 	var homeWork model.HomeWork
-	err := global.GvaDB.Where("name = ? AND version_name =?", name, versionName).First(&homeWork).Error
-	return err == nil
+	err := global.GvaDB.Where("id =?", id).First(&homeWork).Error
+	return homeWork, err
 }
 
-func (m *HomeWorkRepository) GetHomeWorkID(name string, versionName string) (uint, error) {
-	var homeWork model.HomeWork
-	err := global.GvaDB.Where("name = ? AND version_name =?", name, versionName).First(&homeWork).Error
-	return homeWork.ID, err
+func (m *HomeWorkRepository) AssignHomeWorkToClass(homeworkUpdated model.HomeWork) error{
+	err := global.GvaDB.Where("id = ?", homeworkUpdated.ID).Updates(&homeworkUpdated).Error
+	return err
 }
 
+
+
+func (m *HomeWorkRepository) GetClassHomework(classId uint) ([]model.HomeworkClasses, error){
+	var classHomework  []model.HomeworkClasses
+	err := global.GvaDB.Where("class_id = ?", classId).Find(&classHomework).Error
+	return classHomework, err
+}
 
 
 

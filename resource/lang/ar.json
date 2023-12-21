@@ -10,6 +10,7 @@
 		"deleteFail": "فشل في الحذف",
 		"deleteSuccess": "تم الحذف بنجاح",
 		"getDataFail": "فشل في الحصول على البيانات!",
+		"moveSuccess":"تم نقله بنجاح",
 		
 		"getDataSuccess": "تم الحصول على البيانات بنجاح",
 		"modifyFail": "فشل في التعديل!",

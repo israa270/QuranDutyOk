@@ -70,3 +70,25 @@ func (m *ClassApi) GetClassList(c *gin.Context) {
 
 	m.classController.GetClassList(info, c)
 }
+
+// GetClassHomework
+// @Tags Class
+// @Summary GetClassHomework
+// @Security ApiKeyAuth
+// @accept Application/json
+// @Produce Application/json
+// @Param data query  tmsReq.ClassSearch false "ClassList"
+// @Success 200 {object} response.Response "{"code": 0,"message": "DataSuccess","result": {},"type": "success"}"
+// @Failure 500
+// @Router /class/getClassHomework [get]
+func (m *ClassApi) GetClassHomework(c *gin.Context) {
+
+	var info manReq.GetHomeWorkQuery
+	if err := c.ShouldBindQuery(&info); err != nil {
+		global.GvaLog.Error(global.GvaLoggerMessage["log"].BadRequest, zap.Error(err))
+		response.FailWithMessage(global.Translate("general.badRequest"), http.StatusBadRequest, "error", c)
+		return
+	}
+
+	m.classController.GetClassHomework(info, c)
+}

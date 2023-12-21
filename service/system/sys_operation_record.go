@@ -59,7 +59,7 @@ func (p *OperationRecordService) ParseLogInfoList2Excel(info []sysResp.AuditLogR
 	var filePath string
 	if format == utils.PDF {
 		filePath = global.GvaConfig.Excel.Dir + "auditLogExport_" + fmt.Sprintf("%v", time.Now().Unix()) + ".pdf"
-		return p.pdfUsecase.CreatePDF(filePath, header, data, "audit Log Data", pdfCase.Platform)
+		return p.pdfUsecase.CreatePDF(filePath, header, data, "audit Log Data", pdfCase.Audit)
 	}
 
 	filePath = global.GvaConfig.Excel.Dir + "auditLogExport_" + fmt.Sprintf("%v", time.Now().Unix()) + ".xlsx"

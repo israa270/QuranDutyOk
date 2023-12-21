@@ -88,11 +88,6 @@ mysql:
   log-mode: error
   log-zap: true
   limit-records: 1000
-mysql-info:
-  path: tms-db   #10.16.34.160
-  #port: "3306"  
-  w-port: "6446"
-  r-port: "6447" 
 redis:
   db: 0
   addr: tms-redis-master:6379 #tms-redis-master

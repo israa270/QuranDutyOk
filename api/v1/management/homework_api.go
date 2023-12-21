@@ -58,7 +58,7 @@ func (m *HomeWorkApi) CreateHomeWork(c *gin.Context) {
 // @Param data query  tmsReq.HomeWorkSearch false "HomeWorkList"
 // @Success 200 {object} response.Response "{"code": 0,"message": "DataSuccess","result": {},"type": "success"}"
 // @Failure 500
-// @Router /HomeWork/getHomeWorkList [get]
+// @Router /homeWork/getHomeWorkList [get]
 func (m *HomeWorkApi) GetHomeWorkList(c *gin.Context) {
 	var info manReq.HomeWorkSearch
 	if err := c.ShouldBindQuery(&info); err != nil {
@@ -68,4 +68,26 @@ func (m *HomeWorkApi) GetHomeWorkList(c *gin.Context) {
 	}
 
 	m.homeWorkController.GetHomeWorkList(info, c)
+}
+
+
+// AssignHomeWorkToClass
+// @Tags HomeWork
+// @Summary AssignHomeWorkToClass
+// @Security ApiKeyAuth
+// @accept Application/json
+// @Produce Application/json
+// @Param data query  tmsReq.AssignHomeWorkToClassesDTO false "HomeWorkList"
+// @Success 200 {object} response.Response "{"code": 0,"message": "DataSuccess","result": {},"type": "success"}"
+// @Failure 500
+// @Router /homeWork/assignHomeWorkToClass [put]
+func (m *HomeWorkApi) AssignHomeWorkToClass(c *gin.Context) {
+	var homework manReq.AssignHomeWorkToClassesDTO
+	if err := c.ShouldBindJSON(&homework); err != nil {
+		global.GvaLog.Error(global.GvaLoggerMessage["log"].BadRequest, zap.Error(err))
+		response.FailWithMessage(global.Translate("general.badRequest"), http.StatusBadRequest, "error", c)
+		return
+	}
+
+	m.homeWorkController.AssignHomeWorkToClass(homework, c)
 }

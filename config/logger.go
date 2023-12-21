@@ -13,18 +13,7 @@ type MessageLogger struct {
 	MailMsg             `json:"mail"`
 	InitMsg             `json:"init"`
 	UserMsg             `json:"sysUser"`
-	TerminalMsg         `json:"terminal"`
-	OrganizationMsg     `json:"organization"`
-	PlatformMsg         `json:"platform"`
-	ManufacturerMsg     `json:"manufacturer"`
-	ModelMsg            `json:"model"`
-	ApplicationMsg      `json:"application"`
-	BusinessCategoryMsg `json:"businessCategory"`
-	TerminalGroupMsg    `json:"terminalGroup"`
-	FirmwareMsg         `json:"firmware"`
-	MerchantTypeMsg     `json:"merchantType"`
 	ReportsMsg          `json:"reports"`
-	PushTaskMsg         `json:"pushTask"`
 	FileMsg             `json:"file"`
 }
 
@@ -118,6 +107,7 @@ type GeneralMsg struct {
 	VariableSource      string `json:"variableSource"`
 	ParseJson           string `json:"parseJson"`
 	ReadBodyResp        string `json:"readBodyResp"`
+	UserFail            string `json:"userFail"`
 }
 
 type SysCaptchaMsg struct {
@@ -321,149 +311,8 @@ type UserMsg struct {
 	ValidatePassword        string   `json:"validatePassword"`
 }
 
-type TerminalMsg struct {
-	TerminalNotExist        string `json:"terminalNotExist"`
-	TerminalNotExistStatus  string `json:"terminalNotExistStatus"`
-	TerminalTID             string `json:"terminalTID"`
-	TerminalSerial          string `json:"terminalSerial"`
-	DisableTerminal         string `json:"disableTerminal"`
-	MerchantTerminal        string `json:"merchantTerminal"`
-	EmptyRequest            string `json:"emptyRequest"`
-	MoveTerminalFail        string `json:"moveTerminalFail"`
-	MoveTerminalSuccess     string `json:"moveTerminalSuccess"`
-	TerminalSerialNo        string `json:"terminalSerialNo"`
-	UpdateStatusFail        string `json:"updateStatusFail"`
-	TerminalStatus          string `json:"terminalStatus"`
-	TerminalStatusDisabled  string `json:"terminalStatusDisabled"`
-	AddTerminalsFail        string `json:"addTerminalsFail"`
-	AddTerminalSuccess      string `json:"addTerminalSuccess"`
-	DeleteTerminalGroupFail string `json:"deleteTerminalGroupFail"`
-	DeleteTerminalGroup     string `json:"deleteTerminalGroup"`
-	TerminalTidLen          string `json:"terminalTidLen"`
-	MoveSame                string `json:"moveSame"`
-	TerminalIdRequired      string `json:"terminalIdRequired"`
-	SerialNoEmpty           string `json:"serialNoEmpty"`
-	EndSerialNoEmpty        string `json:"endSerialNoEmpty"`
-	InvalidSerialNo         string `json:"invalidSerialNo"`
-	InvalidQuantity         string `json:"invalidQuantity"`
 
-	//terminal location external api
-	ApiLocationResp string `json:"apiLocationResp"`
-}
 
-type OrganizationMsg struct {
-	OrgChildren    string `json:"orgChildren"`
-	ParentOrgExist string `json:"parentOrgExist"`
-	ParentOrg      string `json:"parentOrg"`
-	OrgExist       string `json:"orgExist"`
-
-	GetOrganizationFail string `json:"getOrganizationFail"`
-	SameEmail           string `json:"sameEmail"`
-	OrgTree             string `json:"orgTree"`
-}
-
-type PlatformMsg struct {
-	PlatformSupport      string `json:"platformSupport"`
-	PlatformExist        string `json:"platformExist"`
-	DuplicateValueFormat string `json:"duplicateValueFormat"`
-	PlatformAppSupport   string `json:"platformAppSupport"`
-}
-
-type ManufacturerMsg struct {
-	ManufacturerExist string `json:"manufacturerExist"`
-	StatusDisable     string `json:"statusDisable"`
-	DeleteModels      string `json:"deleteModels"`
-	DeleteTerminals   string `json:"deleteTerminals"`
-}
-
-type ModelMsg struct {
-	ManufacturerModels string `json:"manufacturerModels"`
-	PlatformModels     string `json:"platformModels"`
-	ModelNotExist      string `json:"modelNotExist"`
-	ModelsTerminals    string `json:"modelsTerminals"`
-	PNExist            string `json:"pnExist"`
-	DiffPlatform       string `json:"diffPlatform"`
-}
-
-type ApplicationMsg struct {
-	AppID                       string `json:"appId"`
-	AppIdExist                  string `json:"appIdExist"`
-	AppIdExistParameter         string `json:"appIdExistParameter"`
-	AppName                     string `json:"appName"`
-	GetMainActivity             string `json:"getMainActivity"`
-	PlatformAndroid             string `json:"platformAndroid"`
-	FormatApp                   string `json:"formatApp"`
-	AppVersion                  string `json:"appVersion"`
-	AppExist                    string `json:"appExist"`
-	AppExistWithVersionNameCode string `json:"appExistWithVersionNameCode"`
-	AppNotExist                 string `json:"appNotExist"`
-	AppVersionNotExist          string `json:"appVersionNotExist"`
-	CreateBaseType              string `json:"createBaseType"`
-	ParameterFile               string `json:"parameterFile"`
-	ParametersFileFound         string `json:"parametersFileFound"`
-	DataFileFound               string `json:"dataFileFound"`
-	ParameterCreation           string `json:"parameterCreation"`
-	DfVersion                   string `json:"dfVersion"`
-	EmptyFields                 string `json:"emptyFields"`
-	UpdateVersion               string `json:"updateVersion"`
-
-	DataFileCreation      string `json:"dataFileCreation"`
-	AppScreenShot         string `json:"appScreenShot"`
-	AppScreenShotCreation string `json:"appScreenShotCreation"`
-	ScreenShot            string `json:"screenShot"`
-	ScreenShotLimit       string `json:"screenShotLimit"`
-	ScreenShotFormat      string `json:"screenShotFormat"`
-	ParamFileRead         string `json:"paramFileRead"`
-	XmlMarshal            string `json:"xmlMarshal"`
-	ParameterVariable     string `json:"parameterVariable"`
-	ParameterValue        string `json:"parameterValue"`
-	ParamFileId           string `json:"paramFileId"`
-	ParamValueNumber      string `json:"paramValueNumber"`
-	VersionCodeSame       string `json:"versionCodeSame"`
-	VersionCodeHigher     string `json:"versionCodeHigher"`
-	VersionCodeEqual      string `json:"versionCodeEqual"`
-	AppStatus             string `json:"appStatus"`
-	PackageName           string `json:"packageName"`
-	ExpireDate            string `json:"expireDate"`
-	ParameterFileDeleted  string `json:"parameterFileDeleted"`
-	PackageNameExist      string `json:"packageNameExist"`
-	ParameterTemplateFile string `json:"parameterTemplateFile"`
-	CheckBaseType         string `json:"checkBaseType"`
-	UpdateBaseType        string `json:"updateBaseType"`
-
-	AppLabel string `json:"appLabel"`
-
-	ParamValueRequired  string `json:"paramValueRequired"`
-	ParamUploadRequired string `json:"paramUploadRequired"`
-
-	DuplicateTemplateName string `json:"duplicateTemplateName"`
-	LastAppVersion        string `json:"lastAppVersion"`
-}
-
-type BusinessCategoryMsg struct {
-	ParentNotExist string `json:"parentNotExist"`
-	AppChildren    string `json:"appChildren"`
-}
-
-type TerminalGroupMsg struct {
-	TerminalGroupNotExist string `json:"terminalGroupNotExist"`
-	CheckGroup            string `json:"checkGroup"`
-	TGroupName            string `json:"tGroupName"`
-	AddTerminal           string `json:"addTerminal"`
-	HaveTerminals         string `json:"haveTerminals"`
-}
-
-type FirmwareMsg struct {
-	EmptyFields           string `json:"emptyFields"`
-	FirmwareVersionNumber string `json:"firmwareVersionNumber"`
-	FirmwareIdExist       string `json:"firmwareIdExist"`
-	ModelsEmpty           string `json:"modelsEmpty"`
-}
-
-type MerchantTypeMsg struct {
-	NameExist            string `json:"nameExist"`
-	MerchantTypeNotExist string `json:"merchantTypeNotExist"`
-}
 
 type ReportsMsg struct {
 	ParameterReportsFail string `json:"parameterReportsFail"`
@@ -472,22 +321,6 @@ type ReportsMsg struct {
 	SaveReportFile       string `json:"saveReportFile"`
 }
 
-type PushTaskMsg struct {
-	PushTaskAppFail         string `json:"pushTaskAppFail"`
-	UpdateSchemaFile        string `json:"updateSchemaFile"`
-	PushTaskNotFound        string `json:"pushTaskNotFound"`
-	PushTaskActivate        string `json:"pushTaskActivate"`
-	ParameterPTaskNotExist  string `json:"parameterPTaskNotExist"`
-	PushTaskStatus          string `json:"pushTaskStatus"`
-	PushTaskFirmwareFail    string `json:"pushTaskFirmwareFail"`
-	ParameterFileTask       string `json:"parameterFileTask"`
-	VarValue                string `json:"varValue"`
-	LenMax                  string `json:"lenMax"`
-	LenMin                  string `json:"lenMin"`
-	NoTerminalGroupTOActive string `json:"noTerminalGroup"`
-	SameAppPushed           string `json:"sameAppPushed"`
-	GroupTaskCount          string `json:"groupTaskCount"`
-}
 
 type FileMsg struct {
 	ReceiveFile   string `json:"receiveFile"`

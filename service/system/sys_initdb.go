@@ -10,7 +10,7 @@ import (
 	"github.com/ebedevelopment/next-gen-tms/server/model/system"
 
 	// "github.com/ebedevelopment/next-gen-tms/server/model/system/request"
-	"github.com/ebedevelopment/next-gen-tms/server/model/tms"
+	"github.com/ebedevelopment/next-gen-tms/server/model/data"
 )
 
 // InitDBService init service
@@ -59,12 +59,7 @@ func (i *InitDBService) initTables() error {
 		management.HomeWork{},
 		management.Student{},
 		management.Teacher{},
-
-
-		
-		tms.Manufacturer{},
-
-
+        management.StudentHomeWorks{},
 	); err != nil {
 		return err
 	}

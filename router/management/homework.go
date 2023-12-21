@@ -19,6 +19,8 @@ func (s *HomeWorkRouter) InitHomeWorkRouter(Router *gin.RouterGroup) {
 	homeWorkRouterWithoutRecord := Router.Group("homeWork")
 	{
 		homeWorkRouter.POST("createHomeWork", s.homeWorkApi.CreateHomeWork)  
+		homeWorkRouter.PUT("assignHomeWorkToClass", s.homeWorkApi.AssignHomeWorkToClass)
+		 
 	}
 	{
 		homeWorkRouterWithoutRecord.GET("getHomeWorkList", s.homeWorkApi.GetHomeWorkList)  

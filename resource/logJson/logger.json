@@ -96,7 +96,8 @@
 		"createFile":"failed to create file",
 		"VariableSource":"not support parameter variables",
 		"parseJson":"failed to parse json ",
-        "readBodyResp":"failed to read resp body"            
+        "readBodyResp":"failed to read resp body",
+		"userFail":"failed to get user"           
 
 	},
 	"organization":{

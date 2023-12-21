@@ -1,8 +1,7 @@
-package tms
+package data
 
 // GroupRouter  struct
 type GroupRouter struct {
-	ManufacturerRouter
 	ExcelRouter
 	FileUploadAndDownloadRouter
 }

@@ -1,6 +1,6 @@
 package response
 
-import "github.com/ebedevelopment/next-gen-tms/server/model/tms"
+import "github.com/ebedevelopment/next-gen-tms/server/model/data"
 
 // FileResponse struct
 type FileResponse struct {

@@ -6,8 +6,8 @@ import (
 
 	"github.com/ebedevelopment/next-gen-tms/server/global"
 	"github.com/ebedevelopment/next-gen-tms/server/model/common/response"
-	dataRes "github.com/ebedevelopment/next-gen-tms/server/model/tms/response"
-	"github.com/ebedevelopment/next-gen-tms/server/service/tms/data"
+	dataRes "github.com/ebedevelopment/next-gen-tms/server/model/data/response"
+	"github.com/ebedevelopment/next-gen-tms/server/service/data"
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
 )
